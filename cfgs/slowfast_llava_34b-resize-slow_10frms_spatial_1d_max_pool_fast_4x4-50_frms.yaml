@@ -1,0 +1,22 @@
+SCRIPT: [
+  "bash scripts/run_eval_videoqabench.sh",  # Openset VideoQA tasks
+]
+
+CUDA_VISIBLE_DEVICES: "0,1,2,3,4,5,6,7"
+CONFIG_NAME: "auto"
+DATA_DIR: [
+  "playground/data/video_qa",
+]
+GT_QA_DIR: "playground/gt_qa_files"
+MODEL_PATH: "liuhaotian/llava-v1.6-34b/"
+OUTPUT_DIR: "outputs/artifacts"
+TEMP_DIR: "outputs/eval_save_dir"
+CONV_MODE: [
+  "image_seq_34b_v3",
+]
+NUM_FRAMES: "50"
+INPUT_STRUCTURE: "image_seq"
+IMAGE_ASPECT_RATIO: "resize"
+TEMPORAL_AGGREGATION: "slow_3frms_spatial_1d_max_pool_roi6-middle_3frms_spatial_1d_max_pool_24x12-fast_50frms_4x4"
+ROPE_SCALING_FACTOR: 2
+SAVE_DIR: "outputs/artifacts/logs"
