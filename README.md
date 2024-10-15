@@ -8,7 +8,7 @@ by Kai Han, Jianyuan Guo, Yehui Tang, Wei He, Enhua Wu, Yunhe Wang
 
 ### Installation
 
-- The code is developed with CUDA 11.7, Python >= 3.10.12, PyTorch >= 2.1.0
+The code is developed with CUDA 11.7, Python >= 3.10.12, PyTorch >= 2.1.0
 
     1. Install the requirements.
         ```
@@ -57,8 +57,6 @@ by Kai Han, Jianyuan Guo, Yehui Tang, Wei He, Enhua Wu, Yunhe Wang
             ```
 
 2. Download the raw videos from the official websites.
-
-    - Openset VideoQA
 
         - [Recomanded] Option 1: Follow the instruction in [`Video-LLaVA`](https://github.com/PKU-YuanGroup/Video-LLaVA/blob/main/TRAIN_AND_VALIDATE.md) to download raw videos.
         - Option 2: Download videos from the data owners.
