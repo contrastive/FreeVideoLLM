@@ -45,11 +45,11 @@ class CLIPDoubleTower(nn.Module):
 
     @property
     def dtype(self):
-        return self.vision_tower.dtype
+        return self.clip_model.dtype
 
     @property
     def device(self):
-        return self.vision_tower.device
+        return self.clip_model.device
 
 
 class CLIPVisionTower(nn.Module):
