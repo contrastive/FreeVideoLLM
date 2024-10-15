@@ -17,6 +17,6 @@ CONV_MODE: [
 NUM_FRAMES: "50"
 INPUT_STRUCTURE: "image_seq"
 IMAGE_ASPECT_RATIO: "resize"
-TEMPORAL_AGGREGATION: "slow_3frms_spatial_1d_max_pool_roi6-middle_3frms_spatial_1d_max_pool_24x12-fast_50frms_4x4"
+TEMPORAL_AGGREGATION: "slow_3frms_spatial_1d_max_pool_roi8-middle_5frms_spatial_1d_max_pool_24x12-fast_50frms_4x4"
 ROPE_SCALING_FACTOR: 2
 SAVE_DIR: "outputs/artifacts/logs"
