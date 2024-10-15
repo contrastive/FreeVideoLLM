@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 from transformers import CLIPVisionModel, CLIPImageProcessor, CLIPVisionConfig
-from transformers import AutoProcessor, CLIPModel
+from transformers import AutoTokenizer, CLIPModel
 
 
 class CLIPDoubleTower(nn.Module):
@@ -20,25 +20,27 @@ class CLIPDoubleTower(nn.Module):
             print('{} is already loaded, `load_model` called again, skipping.'.format(self.model_name))
             return
 
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-        self.clip_model = CLIPVisionModel.from_pretrained(self.model_name, device_map=device_map)
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name, device_map=device_map)
+        self.clip_model = CLIPModel.from_pretrained(self.model_name, device_map=device_map)
         self.clip_model.requires_grad_(False)
 
         self.is_loaded = True
 
     @torch.no_grad()
     def get_pooled_features(self, question, images):
-        inputs = self.tokenizer([question], padding=True, return_tensors="pt")
-        text_features = self.clip_model.get_text_features(**inputs)
+        inputs = self.tokenizer(question, padding=True, return_tensors="pt")
+        input_ids = inputs['input_ids'].to(device=self.device)
+        text_features = self.clip_model.get_text_features(input_ids)
         image_features = self.clip_model.get_image_features(images)
         return text_features, image_features
 
     @torch.no_grad()
     def get_finegrained_features(self, question, images):
-        inputs = self.tokenizer([question], padding=True, return_tensors="pt")
-        outputs = self.clip_model(**inputs, images)
+        inputs = self.tokenizer(question, padding=True, return_tensors="pt")
+        input_ids = inputs['input_ids'].to(device=self.device)
+        outputs = self.clip_model(input_ids, images)
         text_pooled, image_pooled = outputs.text_embeds, outputs.image_embeds 
-        text_finegrained, image_finegrained = outputs.text_model_output, outputs.vision_model_output
+        text_finegrained, image_finegrained = outputs.text_model_output.last_hidden_state, outputs.vision_model_output.last_hidden_state
         return text_pooled, image_pooled, text_finegrained, image_finegrained
 
     @property
