@@ -11,7 +11,7 @@ import torch.nn.functional as F
 
 from .multimodal_encoder.builder import build_vision_tower
 from .multimodal_projector.builder import build_vision_projector
-from .multimodal_encoder.clip_encoder import CLIPWithProjection
+from .multimodal_encoder.clip_encoder import CLIPDoubleTower
 
 from llava.constants import IGNORE_INDEX, IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_PATCH_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
 
@@ -405,7 +405,7 @@ class LlavaMetaForCausalLM(ABC):
         if temporal_aggregation and \
            temporal_aggregation.lower() != 'none' and \
            temporal_aggregation.lower() != 'false':
-            if temporal_aggregation.startswith('visual_aggregation'):
+            if temporal_aggregation.startswith('slow'):
                 image_features = self.prepare_visual_aggregation(image_features, temporal_aggregation, question, images)
             else:
                 image_features = self.temporal_aggregation(image_features, temporal_aggregation, question, images)
