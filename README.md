@@ -1,8 +1,8 @@
 # FreeVideoLLM
 
-Free Video-LLM: Prompt-guided Visual Perception for Efficient Training-free Video LLM [[arXiv]](https://arxiv.org/abs/2410.10441) [[code]](https://github.com/contrastive/FreeVideoLLM)
+Free Video-LLM: Prompt-guided Visual Perception for Efficient Training-free Video LLM [![arXiv](https://img.shields.io/badge/Arxiv-2410.10441-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2410.10441) [![github](https://img.shields.io/badge/-Github-black?logo=github)](https://github.com/contrastive/FreeVideoLLM)
 
-by Kai Han, Jianyuan Guo, Yehui Tang, Wei He, Enhua Wu, Yunhe Wang
+by [Kai Han](https://iamhankai.github.io/), [Jianyuan Guo](https://ggjy.github.io/), [Yehui Tang](https://scholar.google.com/citations?user=TkSZQ6gAAAAJ&hl=zh-CN), [Wei He](https://github.com/contrastive/FreeVideoLLM), [Enhua Wu](https://www.fst.um.edu.mo/people/ehwu/), [Yunhe Wang](https://www.wangyunhe.site/)
 
 ## Getting Started
 
@@ -58,12 +58,12 @@ The code is developed with CUDA 11.7, Python >= 3.10.12, PyTorch >= 2.1.0
 
 2. Download the raw videos from the official websites.
 
-        - [Recomanded] Option 1: Follow the instruction in [`Video-LLaVA`](https://github.com/PKU-YuanGroup/Video-LLaVA/blob/main/TRAIN_AND_VALIDATE.md) to download raw videos.
-        - Option 2: Download videos from the data owners.
-            - [`MSVD-QA`](https://github.com/xudejing/video-question-answering?tab=readme-ov-file)
-            - [`MSRVTT-QA`](https://github.com/xudejing/video-question-answering?tab=readme-ov-file)
-            - [`TGIF-QA`](https://github.com/YunseokJANG/tgif-qa?tab=readme-ov-file)
-            - [`ActivityNet-QA`](https://github.com/MILVLG/activitynet-qa)
+    - [Recomanded] Option 1: Follow the instruction in [`Video-LLaVA`](https://github.com/PKU-YuanGroup/Video-LLaVA/blob/main/TRAIN_AND_VALIDATE.md) to download raw videos.
+    - Option 2: Download videos from the data owners.
+        - [`MSVD-QA`](https://github.com/xudejing/video-question-answering?tab=readme-ov-file)
+        - [`MSRVTT-QA`](https://github.com/xudejing/video-question-answering?tab=readme-ov-file)
+        - [`TGIF-QA`](https://github.com/YunseokJANG/tgif-qa?tab=readme-ov-file)
+        - [`ActivityNet-QA`](https://github.com/MILVLG/activitynet-qa)
 
 
 3. Organize the raw videos under [playground/data](playground/data).
